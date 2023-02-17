@@ -1,0 +1,4 @@
+{
+  "root": true,
+  "extends": ["@www-ui/eslint-config"]
+}

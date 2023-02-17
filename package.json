@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "packageManager": "pnpm@7.3.0",
+  "workspaces": [
+    "packages/*",
+    "example",
+    "docs"
+  ],
+  "scripts": {
+    "dev": "pnpm -C example dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 && pretty-quick --check --branch dev",
+    "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json && pretty-quick --branch dev",
+    "prepare": "husky install"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@www-ui/components": "workspace:^1.0.0",
+    "@www-ui/eslint-config": "workspace:^1.0.0",
+    "@www-ui/theme-chalk": "workspace:^1.0.0",
+    "@www-ui/utils": "workspace:^1.0.0",
+    "cz-git": "^1.4.1",
+    "czg": "^1.4.1",
+    "eslint": "^8.34.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "^2.8.4",
+    "pretty-quick": "^3.1.3",
+    "rimraf": "^4.1.2",
+    "sass": "^1.58.2",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vue": "^3.2.36",
+    "www-ui": "workspace:^1.0.0"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
+  }
+}
